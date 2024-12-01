@@ -1,0 +1,35 @@
+.question{
+    font-size: 23px;
+    font-weight: 500;  
+}
+
+.error_message{
+    color: #EE5454;
+    font-size: 14px;
+    text-align: center;
+    display: flex;
+    padding: 0;
+    opacity: 0;
+    justify-content: center;
+    align-items: center;
+    column-gap: 20px;
+}
+
+.error_message p{
+    color: #EE5454;
+}
+
+.show_error{
+    opacity: 1;
+}
+
+.error_icon{
+     display: inline-block; 
+    width: 25px;
+    height: 25px; 
+}
+
+.error_icon img{
+    width: 100%;
+    height: 100%;
+}

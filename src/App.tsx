@@ -1,35 +1,52 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
+import Navbar from './components/Navbar/Navbar';
+import HeroPage from './pages/HeroPage/HeroPage';
+import QuizePage from './pages/QuizePage/QuizePage';
+import ResultPage from './pages/ResultsPage/ResultPage';
+import Card from './components/Card/Card';
+import Button from './components/Button/Button';
+import { useState} from 'react';
 
 function App() {
-  const [count, setCount] = useState(0)
+
+  const [subject, setSubject] = useState<string>("");
+  const [currentPage, setCurrentPage] = useState("");
+  const [score, setScore] = useState<number>(0);
 
   return (
     <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <Navbar subject={subject} />
+      {currentPage === "Quize" ? (
+        <QuizePage
+          subject={subject}
+          setScore={setScore}
+          setCurrentPage={setCurrentPage}
+        />
+      ) :
+      currentPage === "result" ? (
+        <ResultPage
+          ScoreCard={() => (
+            <>
+              <Card mark={score} total={10} title={subject}/>
+              <Button
+                onClick={() => {
+                  setCurrentPage("");
+                  return setSubject("");
+                }}
+                submit_container="submit_container"
+                submit_button="submit_button"
+                submit_text="Play Again"
+              />
+            </>
+          )}
+        />
+        ) :
+        (
+        <HeroPage setSubject={setSubject} setCurrentPage={setCurrentPage} />
+          )
+      }
     </>
-  )
+  );
 }
 
 export default App

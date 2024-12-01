@@ -1,0 +1,182 @@
+.button{
+    border: none;
+    outline: none;
+    box-shadow: var(--box-shadow);
+    flex: 1;
+    padding: 10px 20px;
+    border-radius: 15px;
+    background-color: var(--button-background);
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+.container{
+    display: none;
+}
+
+.menu_button{
+    display: flex;
+    align-items: center;
+    column-gap: 10px;
+    font-size: 18px;
+}
+
+.imageContainer {
+    width: 28px;
+    height: 28px;
+    display: inline-block;
+    position: relative;
+}
+
+.imageContainer img {
+    width: 100%;
+    height: 100%;
+}
+
+.option_button{
+    display:flex;
+    align-items: center;
+    column-gap: 10px;
+    font-size: 19px;
+    text-transform: unset;
+}
+
+.option{
+    font-size: 20px;
+    font-weight: 600;
+    padding: 12px 17px;
+    border-radius: 5px;
+    color:var(--options-color);
+    background-color: var(--options-bg-color);
+}
+
+.option_text{
+    font-size: 16px;
+    padding-right: 30px;
+}
+
+.option_container{
+    border:1px solid transparent;
+    position: relative;
+}
+
+.option_icon{
+    display: none;
+    width: 35px;
+    height: 35px;
+    position: absolute;
+    right: 10px;
+    top: 17px;
+}
+
+.option_icon img{
+    width: 100%;
+    height: 100%;
+}
+
+.option_container:hover{
+    border-color: var(--secondary-bg-color);
+}
+
+.option_container:hover .option{
+    background-color: #F6E7FF;
+    color: var(--secondary-bg-color);
+}
+
+.option_container:active .option{
+    background-color: var(--secondary-bg-color);
+    color: #FFF;
+}
+
+.selected .option{
+        background-color: var(--secondary-bg-color);
+        color: #FFF;
+}
+
+.selected{
+    border: 1px solid var(--secondary-bg-color);
+}
+
+.correct{
+    border:1px solid #26D782;
+}
+
+.correct .option{
+    background-color: #26D782;
+    color: #fff;
+}
+
+.correct .option_icon{
+    display: inline-block;
+}
+
+.incorrect{
+    border:1px solid #EE5454
+}
+
+.incorrect .option{
+    background-color: #EE5454;
+    color: #fff;
+}
+
+.incorrect .option_icon{
+    display: inline-block;
+}
+
+.submit_container{
+    background-color: var(--secondary-bg-color);
+    color: #FFF;
+    padding: 23px;
+    font-size: 18px;
+    text-align: center;
+    text-transform: capitalize;
+}
+
+.submit_container:hover{
+    background: linear-gradient(0deg, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), #A729F5;;
+    color: #FFF;
+}
+
+.submit_button{
+    display: block;
+}
+
+.submit_button p{
+    color: #FFF;
+    text-transform: capitalize;
+}
+
+@media  (min-width: 768px) {
+    .imageContainer{
+        width: 35px;
+        height: 35px;
+    }
+
+  .option_text{
+    font-size: 20px;
+  }
+
+  .option{
+    font-size: 22px;
+  }
+
+  .submit_button p{
+    font-size: 20px;
+  }
+}
+
+@media  (min-width: 1200px) {
+    .imageContainer{
+        width: 40px;
+        height: 40px;
+    }
+  .option_text, .submit_button p{
+    font-size: 22px;
+  }
+
+  .option{
+    font-size: 24px;
+  }
+}
+
+

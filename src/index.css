@@ -1,68 +1,75 @@
-:root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
+@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+:root{
+  --secondary-bg-color: #A729F5;
+  --options-bg-color: #F4F6FA;
+  --options-color: #626C7F;
 }
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
+html[data-theme="light"] {
+  --background-color: #F4F6FA;
+  --text-color: #313E51;
+  --secondary-text-color: #626C7F;
+  --button-background: #FFFFFF;
+  --bg-image: url("/public/images/pattern-background-mobile-light.svg");
+  --box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 }
 
-body {
+html[data-theme="dark"] {
+  --background-color: #313E51;
+  --text-color: #FFFFFF;
+  --secondary-text-color: #F4F6FA;
+  --button-background: #3B4D66;
+  --bg-image: url("/public/images/pattern-background-mobile-dark.svg");
+   --box-shadow: unset;
+}
+
+*{
+  font-family: 'Rubik', sans-serif;
+  color: var(--text-color);
+  box-sizing: border-box;
+  padding: 0;
   margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+body{
+  padding: 40px 20px;
+  background-color: var(--background-color);
+  background-image: var(--bg-image);
+  background-size: cover;
+  background-repeat: no-repeat;
+  transition: background-color 0.3s ease, background-image 0.3s ease, color 0.3s ease;
 }
 
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-}
-
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
+@media  (min-width: 768px) {
+  html[data-theme="light"] {
+    --bg-image: url("/public/images/pattern-background-tablet-light.svg");
   }
-  a:hover {
-    color: #747bff;
+
+  html[data-theme="dark"] {
+    --bg-image: url("/public/images/pattern-background-tablet-dark.svg");
   }
-  button {
-    background-color: #f9f9f9;
+
+  body{
+    padding: 50px 90px;
+  }
+}
+
+@media (min-width: 1024px) {
+   html[data-theme="light"] {
+    --bg-image: url("/public/images/pattern-background-desktop-light.svg");
+  }
+
+  html[data-theme="dark"] {
+    --bg-image: url("/public/images/pattern-background-desktop-dark.svg");
+  }
+     body{
+    padding: 30px 140px 30px;
+  }
+}
+
+@media (min-width: 1400px) {
+     body{
+    padding: 75px 90px;
   }
 }

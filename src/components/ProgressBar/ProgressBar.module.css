@@ -1,0 +1,21 @@
+.progress_bar_container {
+  position: relative;
+  overflow: hidden;
+  padding: 2px;
+  width: 100%;
+  z-index: 100;
+position: absolute;
+bottom: -30px;
+
+  box-shadow: var(--box-shadow);
+}
+
+.progress_bar_fill {
+  transition: width 100s ease-in-out;
+}
+
+@media  (min-width: 1024px) {
+    .progress_bar_container{
+            bottom: 30%;
+    }
+}

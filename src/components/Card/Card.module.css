@@ -1,0 +1,16 @@
+.card_container{
+    display: flex;
+    padding: 30px 20px;
+    border-radius: 20px;
+    flex-direction: column;
+    text-align: center;
+    background: var(--button-background);
+    flex: 1;
+    box-shadow: var(--box-shadow);
+}
+
+.mark{
+    font-size: 6rem;
+    margin: 20px auto 15px;
+    font-weight: 600;
+}

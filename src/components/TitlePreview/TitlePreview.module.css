@@ -1,0 +1,23 @@
+h1{
+    font-size: 2.5rem;
+}
+
+.title_light{
+    display: block;
+    font-weight: 100;
+}
+
+.title_bold{
+    display: block;
+    font-weight: 700;
+}
+
+.boldTextFirst {
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+.lightTextFirst {
+    display: flex;
+    flex-direction: column;
+}
