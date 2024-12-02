@@ -5,13 +5,15 @@ import QuizePage from './pages/QuizePage/QuizePage';
 import ResultPage from './pages/ResultsPage/ResultPage';
 import Card from './components/Card/Card';
 import Button from './components/Button/Button';
-import { useState} from 'react';
+import {useState} from 'react';
 
 function App() {
-
-  const [subject, setSubject] = useState<string>("");
-  const [currentPage, setCurrentPage] = useState("");
-  const [score, setScore] = useState<number>(0);
+  const storedSubject: string | null = localStorage.getItem("subject");
+  const storedPage: string | null = localStorage.getItem("currentPage");
+  const storedScore: string | null = localStorage.getItem("score");
+  const [subject, setSubject] = useState<string>(storedSubject || "");
+  const [currentPage, setCurrentPage] = useState<string>(storedPage  || "");
+  const [score, setScore] = useState<number>(Number(storedScore) || 0);
 
   return (
     <>
@@ -23,6 +25,7 @@ function App() {
           setCurrentPage={setCurrentPage}
         />
       ) :
+        
       currentPage === "result" ? (
         <ResultPage
           ScoreCard={() => (
@@ -30,7 +33,9 @@ function App() {
               <Card mark={score} total={10} title={subject}/>
               <Button
                 onClick={() => {
-                  setCurrentPage("");
+                    setCurrentPage("");
+                    localStorage.setItem("score", (0).toString());
+                    localStorage.removeItem("currentPage");
                   return setSubject("");
                 }}
                 submit_container="submit_container"
@@ -41,6 +46,7 @@ function App() {
           )}
         />
         ) :
+          
         (
         <HeroPage setSubject={setSubject} setCurrentPage={setCurrentPage} />
           )
@@ -49,4 +55,4 @@ function App() {
   );
 }
 
-export default App
+export default App;

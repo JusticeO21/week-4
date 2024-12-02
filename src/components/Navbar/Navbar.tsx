@@ -1,6 +1,6 @@
 import styles from './Navbar.module.css'
 import ThemeSwitch from '../ThemeSwitch/ThemeSwitch';
-import SubjectTitle from '../Subject/SubjectTitle';
+import SubjectTitle from '../SubjectPreview/SubjectPreview';
 
 interface NavbarPropsTypes {
   subject: string;

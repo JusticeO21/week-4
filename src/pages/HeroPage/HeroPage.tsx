@@ -15,7 +15,20 @@ interface HeroPagePropsType {
   setCurrentPage: React.Dispatch<React.SetStateAction<string>>;
 }
 
-function HeroPage({setSubject, setCurrentPage}: HeroPagePropsType) {
+function storeSubject(subject: string) {
+  localStorage.setItem("subject", subject);
+  localStorage.setItem("currentPage", "Quize");
+}
+
+function HeroPage({ setSubject, setCurrentPage }: HeroPagePropsType) {
+
+  function handleButtonClick(subject: string) {
+    localStorage.setItem("subject", subject);
+    setSubject(subject);
+    storeSubject(subject);
+    setCurrentPage("Quize");
+  }
+
   return (
     <div>
       <ContentContainer
@@ -38,32 +51,28 @@ function HeroPage({setSubject, setCurrentPage}: HeroPagePropsType) {
                   menu_button="menu_button"
                   text="html"
                   onClick={() => {
-                    setSubject("html");
-                    setCurrentPage("Quize");
+                    handleButtonClick("html");
                   }}
                 />
                 <MenuButton
                   menu_button="menu_button"
                   text="css"
                   onClick={() => {
-                    setSubject("css");
-                    setCurrentPage("Quize");
+                    handleButtonClick("css");
                   }}
                 />
                 <MenuButton
                   menu_button="menu_button"
                   text="javascript"
                   onClick={() => {
-                    setSubject("javascript");
-                    setCurrentPage("Quize");
+                    handleButtonClick("javascript");
                   }}
                 />
                 <MenuButton
                   menu_button="menu_button"
                   text="accessibility"
                   onClick={() => {
-                    setSubject("accessibility");
-                    setCurrentPage("Quize");
+                    handleButtonClick("accessibility");
                   }}
                 />
               </>

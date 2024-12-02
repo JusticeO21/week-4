@@ -13,10 +13,11 @@ interface QuizePagePropsTypes {
   setCurrentPage: React.Dispatch<React.SetStateAction<string>>;
 }
 
-function QuizePage({subject, setScore, setCurrentPage}: QuizePagePropsTypes) {
+function QuizePage({ subject, setScore, setCurrentPage }: QuizePagePropsTypes) {
+  const storedQuestionNumber = localStorage.getItem('questionNumber');
   const [quizeData, setQuizeData] = useState([]);
   const [isLoading, setIsLoading] = useState<boolean>(false)
-  const [questionNumber, setQuestionNumber] = useState(0)
+  const [questionNumber, setQuestionNumber] = useState(Number(storedQuestionNumber) || 0)
   const [currentQuestion, setCurrentQuestion] = useState<string>("")
   const [filteredData, setFilteredData] = useState<Question[]>([])
   const [goToNextQuestion, setGoToNextQuestion] = useState<boolean>(false) 
@@ -42,7 +43,9 @@ function QuizePage({subject, setScore, setCurrentPage}: QuizePagePropsTypes) {
 
   function goToResultPage() {
     setCurrentPage("result");
+    localStorage.setItem("currentPage", "result");
     setQuestionNumber(0);
+      localStorage.setItem("questionNumber", (0).toString());
   }
 
   function handleAnswerSubmission() {
@@ -76,13 +79,19 @@ function QuizePage({subject, setScore, setCurrentPage}: QuizePagePropsTypes) {
 
   function updateScores(isCorrect:boolean) {
     if (isCorrect) {
-      setScore((prev) => prev + 1); 
+      setScore((prev) => {
+        localStorage.setItem("score", (prev + 1).toString());
+        return prev + 1;
+      }); 
     }
   }
 
   function moveToNextQuestion() {
     setGoToNextQuestion(false);
-    setQuestionNumber((prev) => prev + 1);
+    setQuestionNumber((prev) => {
+      localStorage.setItem("questionNumber", (prev + 1).toString());
+      return prev + 1;
+    });
     setCurrentQuestion(filteredData[questionNumber + 1]["question"]);
     resetAnswerSelection();
   }
@@ -162,6 +171,7 @@ function QuizePage({subject, setScore, setCurrentPage}: QuizePagePropsTypes) {
                           }
                           customize={options[`${option}`]}
                           onClick={() => {
+                            if (goToNextQuestion && selectedAnswer) return;
                             showErrorMessage && setShowErrorMessage("");
                             handleOptionSelection(
                               option,

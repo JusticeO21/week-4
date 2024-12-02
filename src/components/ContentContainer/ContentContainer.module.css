@@ -18,5 +18,12 @@
     .container{
         flex-direction: row;
         column-gap: 80px;
+
+    }
+}
+
+@media  (min-width: 1050px) {
+    .container{
+        margin-top: 100px;
     }
 }

@@ -1,5 +1,5 @@
 import styles from "./Card.module.css";
-import SubjectTitle from '../Subject/SubjectTitle';
+import SubjectTitle from '../SubjectPreview/SubjectPreview';
 import MiniText from '../TextPreview/TextPreview';
 
 interface CardPropTypes {
