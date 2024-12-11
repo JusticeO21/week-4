@@ -15,6 +15,13 @@ function App() {
   const [currentPage, setCurrentPage] = useState<string>(storedPage  || "");
   const [score, setScore] = useState<number>(Number(storedScore) || 0);
 
+  function handlePlayAgainButton() {
+    setCurrentPage("");
+    localStorage.setItem("score", (0).toString());
+    localStorage.removeItem("currentPage");
+    return setSubject("");
+  }
+
   return (
     <>
       <Navbar subject={subject} />
@@ -32,12 +39,7 @@ function App() {
             <>
               <Card mark={score} total={10} title={subject}/>
               <Button
-                onClick={() => {
-                    setCurrentPage("");
-                    localStorage.setItem("score", (0).toString());
-                    localStorage.removeItem("currentPage");
-                  return setSubject("");
-                }}
+                onClick={handlePlayAgainButton}
                 submit_container="submit_container"
                 submit_button="submit_button"
                 submit_text="Play Again"
