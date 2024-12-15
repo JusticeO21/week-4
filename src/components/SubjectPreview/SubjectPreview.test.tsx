@@ -21,7 +21,7 @@ describe("SubjectPreview", () => {
   it("applies the in_card class when passed as a prop", () => {
     const titleImageSrc = "https://example.com/image.jpg";
     const title = "Test Subject";
-    const inCardClass = "cardClass"
+    const inCardClass = "cardClass";
 
     render(
       <SubjectPreview

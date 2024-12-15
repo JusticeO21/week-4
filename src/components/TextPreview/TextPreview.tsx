@@ -1,4 +1,3 @@
-import React from 'react';
 import styles from'./TextPreview.module.css'
 
 interface TextPreviewPropTypes {
@@ -9,7 +8,7 @@ interface TextPreviewPropTypes {
 function TextPreview({ text }: TextPreviewPropTypes) {
   return (
     <div className={styles.container}>
-          <h4>{text}</h4>
+      <h4 role="heading">{text}</h4>
     </div>
   );
 }
