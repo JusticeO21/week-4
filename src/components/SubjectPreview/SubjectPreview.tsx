@@ -7,7 +7,7 @@ interface SubjectPreviewPropTypes {
 }
 function SubjectPreview({ titleImageSrc, title, in_card }: SubjectPreviewPropTypes) {
     return (
-      <div className={`${style.container} ${style[`${in_card}`]}`}>
+      <div className={`${style.container} ${style[`${in_card}`]}`} role='article'>
         <span className={style.imageContainer}>
           <img src={titleImageSrc} alt={title} />
         </span>
