@@ -19,6 +19,7 @@ const ProgressBar = ({
   return (
     <div
       className={styles.progress_bar_container}
+      role="progressbar"
       style={{
         width: "100%",
         height: `${height}px`,

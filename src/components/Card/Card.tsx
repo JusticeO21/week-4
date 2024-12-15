@@ -17,8 +17,7 @@ function Card({mark, total, title}: CardPropTypes) {
               in_card="in_card"
         />
         <p className={styles.mark}>{mark}</p>
-        <MiniText text={`out of ${total}`} />
-     
+        <MiniText text={`out of ${total}`} /> 
     </div>
   );
 }
