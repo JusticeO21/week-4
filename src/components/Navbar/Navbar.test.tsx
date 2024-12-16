@@ -1,7 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import Navbar from "./Navbar";
 import { vi, it, describe, expect } from "vitest";
-import "@testing-library/jest-dom"; 
+import "@testing-library/jest-dom"
 
 vi.mock("../ThemeSwitch/ThemeSwitch", () => ({
   default: () => <div>Mocked ThemeSwitch</div>,
