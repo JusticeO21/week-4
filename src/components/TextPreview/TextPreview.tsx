@@ -1,4 +1,3 @@
-import React from 'react';
 import styles from'./TextPreview.module.css'
 
 interface TextPreviewPropTypes {
