@@ -10,7 +10,7 @@ function Navbar({subject}:NavbarPropsTypes) {
   return (
     <nav className={styles.navbarContainer}>
       {
-        subject ? <SubjectTitle titleImageSrc={`images\\${subject}.svg`} title={subject} /> : (<span ></span>)
+        subject ? <SubjectTitle titleImageSrc={`images\\${subject}.svg`} title={subject} /> : (<span data-testid="placeholder"></span>)
       }
       <ThemeSwitch />
     </nav>

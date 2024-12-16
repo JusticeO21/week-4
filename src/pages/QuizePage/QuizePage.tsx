@@ -45,7 +45,7 @@ function QuizePage({ subject, setScore, setCurrentPage }: QuizePagePropsTypes) {
     setCurrentPage("result");
     localStorage.setItem("currentPage", "result");
     setQuestionNumber(0);
-      localStorage.setItem("questionNumber", (0).toString());
+    localStorage.setItem("questionNumber", (0).toString());
   }
 
   function handleAnswerSubmission() {
@@ -178,6 +178,8 @@ function QuizePage({ subject, setScore, setCurrentPage }: QuizePagePropsTypes) {
                               setSelectedAnswer,
                               setOptions
                             );
+                            console.log("button has ben clicked __________________________");
+                            
                             return;
                           }}
                         />

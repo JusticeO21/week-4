@@ -7,16 +7,10 @@ describe("ProgressBar", () => {
   it("renders the progress bar with correct width based on the progress prop", () => {
     render(<ProgressBar progress={50} />);
 
-    // Use queryAllByRole to get all progress bars
     const progressBars = screen.getAllByRole("progressbar");
-
-    // Ensure there is only one progress bar
     expect(progressBars).toHaveLength(1); // There should be only 1 progress bar
 
-    // Get the fill div within that progress bar
     const progressBarFill = progressBars[0].querySelector("div");
-
-    // The width of the filled part should be 50% when progress is 50
     expect(progressBarFill).toHaveStyle("width: 50%");
   });
 
@@ -25,7 +19,6 @@ describe("ProgressBar", () => {
 
     const progressBar = screen.getByRole("progressbar");
 
-    // Check for default height and border radius
     expect(progressBar).toHaveStyle("height: 9px");
     expect(progressBar).toHaveStyle("border-radius: 10px");
   });
@@ -44,8 +37,8 @@ describe("ProgressBar", () => {
     const progressBarFillOver = screen.getByRole("progressbar").querySelector("div");
     expect(progressBarFillOver).toHaveStyle("width: 100%");
 
-      {cleanup()}
-    // Test with a value less than 0
+      { cleanup() }
+      
     render(<ProgressBar progress={-10} />);
     const progressBarFillUnder = screen.getByRole("progressbar").querySelector("div");
     expect(progressBarFillUnder).toHaveStyle("width: 0%");
